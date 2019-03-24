@@ -1,0 +1,20 @@
+<div>
+
+  <div>
+    <button  class="waves-effect waves-light btn" [routerLink]="['/players/list']">List</button> &nbsp; <button  class="waves-effect waves-light btn" [routerLink]="['/players/addplayer']">Add Player</button>
+  </div>
+  
+  <table>
+    <tr>
+      <td>Team Name</td>
+      <td>Preferred Position</td>
+      <td>Actions</td>
+    </tr>
+    <tr *ngFor="let player of players">
+      <td> {{player.name}} </td>
+      <td> {{player.preferred_position}} </td>
+      <td> <button class="waves-effect waves-teal btn" (click)="deletePlayer(player._id)">Delete</button> </td>
+    </tr>
+  </table>
+
+</div>

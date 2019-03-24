@@ -1,0 +1,78 @@
+<div>
+
+    <div>
+      <button  class="btn" [ngClass]="{'green': game_one}" 
+        [routerLink]="['/players/status/game/1']">Game 1</button> &nbsp; 
+      <button  class="btn" [ngClass]="{'green': game_two}" 
+        [routerLink]="['/players/status/game/2']">Game 2</button> &nbsp; 
+      <button  class="btn" [ngClass]="{'green': game_three}" 
+        [routerLink]="['/players/status/game/3']">Game 3</button>
+    </div>
+
+    <h3>Player Status - {{game}}</h3>
+    
+    <table>
+      <tr>
+        <td>Team Name</td>        
+        <td>Actions</td>
+      </tr>
+      <tr *ngFor="let player of players">
+        <td> {{player.name}} </td>
+        <td> 
+          <div *ngIf="game_one">
+            <button class="waves-effect btn" 
+              [ngClass]="{'green': player.game_one_status.playing}" 
+              (click)="changePlayerStatus(player._id, 'playing', 1)">
+              Playing
+            </button> &nbsp;
+            <button class="waves-effect btn" 
+              [ngClass]="{'red': player.game_one_status.not_playing}" 
+              (click)="changePlayerStatus(player._id, 'not-playing', 1)">
+              Not Playing
+            </button> &nbsp; 
+            <button class="waves-effect btn" 
+              [ngClass]="{'yellow': player.game_one_status.undecided}" 
+              (click)="changePlayerStatus(player._id, 'undecided', 1)">
+              Undecided
+            </button>
+          </div>
+          <div *ngIf="game_two">
+              <button class="waves-effect btn" 
+                [ngClass]="{'green': player.game_two_status.playing}" 
+                (click)="changePlayerStatus(player._id, 'playing', 2)">
+                Playing
+              </button> &nbsp;
+              <button class="waves-effect btn" 
+                [ngClass]="{'red': player.game_two_status.not_playing}" 
+                (click)="changePlayerStatus(player._id, 'not-playing', 2)">
+                Not Playing
+              </button> &nbsp; 
+              <button class="waves-effect btn" 
+                [ngClass]="{'yellow': player.game_two_status.undecided}" 
+                (click)="changePlayerStatus(player._id, 'undecided', 2)">
+                Undecided
+              </button>
+          </div>
+          <div *ngIf="game_three">
+              <button class="waves-effect btn" 
+                [ngClass]="{'green': player.game_three_status.playing}" 
+                (click)="changePlayerStatus(player._id, 'playing', 3)">
+                Playing
+              </button> &nbsp;
+              <button class="waves-effect btn" 
+                [ngClass]="{'red': player.game_three_status.not_playing}" 
+                (click)="changePlayerStatus(player._id, 'not-playing', 3)">
+                Not Playing
+              </button> &nbsp;
+              <button class="waves-effect btn" 
+                [ngClass]="{'yellow': player.game_three_status.undecided}" 
+                (click)="changePlayerStatus(player._id, 'undecided', 3)">
+                Undecided
+              </button>
+          </div>
+        </td>
+      </tr>
+    </table>
+  
+  </div>
+  

@@ -1,0 +1,19 @@
+<div>
+
+    <div>
+      <button  class="waves-effect waves-light btn" [routerLink]="['/players/list']">List</button> &nbsp; <button  class="waves-effect waves-light btn" [routerLink]="['/players/addplayer']">Add Player</button>
+    </div>
+    
+    <div>
+      <form method="POST">
+        <label for="name">Player Name</label>
+        <input type="text" name="player.name" [(ngModel)]="player.name">
+
+        <label for="name">Prefered Position</label>
+        <input type="text" name="player.preferred_position" [(ngModel)]="player.preferred_position">
+
+        <button (click)="addPlayer()"  class="waves-effect waves-light btn" >ADD</button>
+      </form>
+    </div>
+  
+  </div>
